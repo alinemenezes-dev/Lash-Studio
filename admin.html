@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Lash Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="admin-container">
+<h1>Login Admin</h1>
+<input type="text" id="adminName" placeholder="Nome">
+<input type="password" id="adminPass" placeholder="Senha">
+<button onclick="loginAdmin()">Entrar</button>
+
+<div id="adminPanel" class="hidden">
+<h2>Painel Admin</h2>
+<h3>Upload Logo e Fundo</h3>
+<input type="file" id="logoUpload" accept="image/png">
+<button onclick="uploadLogo()">Atualizar Logo</button>
+<input type="file" id="bgUpload" accept="image/png">
+<button onclick="uploadBackground()">Atualizar Fundo</button>
+<h3>Clientes</h3>
+<ul id="clientList"></ul>
+<h3>Agendamentos</h3>
+<div id="calendar"></div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
