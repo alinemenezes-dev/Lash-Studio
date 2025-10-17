@@ -1,54 +1,54 @@
-let isAdminMode = false;let clients = [{name:'cliente1', pass:'1234'}];
+// Clientes
+let clients = [];
 let bookings = [];
 
-function showClientAccess() {
-document.getElementById('clientForm').classList.remove('hidden');
-document.getElementById('adminForm').classList.add('hidden');
-document.getElementById('calendarSection').classList.add('hidden');
+function registerClient(){
+const name = document.getElementById('clientFullName').value;
+const dob = document.getElementById('clientDOB').value;
+const whatsapp = document.getElementById('clientWhatsApp').value;
+if(name && dob && whatsapp){
+clients.push({name,dob,whatsapp});
+alert('Cadastro realizado!');
+} else alert('Preencha todos os campos');
 }
 
-function showAdminAccess() {
-document.getElementById('adminForm').classList.remove('hidden');
-document.getElementById('clientForm').classList.add('hidden');
-document.getElementById('calendarSection').classList.add('hidden');
+function loginClient(){
+const name = document.getElementById('clientLoginName').value;
+const client = clients.find(c=>c.name===name);
+document.getElementById('clientMsg').innerText = client ? 'Login OK!' : 'Cliente não encontrado';
 }
 
-function loginClient() {
-const name = document.getElementById('clientName').value;
-const pass = document.getElementById('clientPass').value;
-const client = clients.find(c => c.name === name && c.pass === pass);
-if(client){
-document.getElementById('clientMsg').innerText = 'Login bem-sucedido!';
-document.getElementById('bookingForm').classList.remove('hidden');
-document.getElementById('accessSection').classList.add('hidden');
-} else {
-document.getElementById('clientMsg').innerText = 'Usuário ou senha incorretos';
-}
-}
-
-function loginAdmin() {
+// Admin
+function loginAdmin(){
 const name = document.getElementById('adminName').value;
 const pass = document.getElementById('adminPass').value;
 if(name==='Aline Menezes' && pass==='aline2024'){
-document.getElementById('adminMsg').innerText = 'Login Admin bem-sucedido!';
-isAdminMode = true;
-document.getElementById('adminForm').classList.add('hidden');
+alert('Login Admin OK!');
 document.getElementById('adminPanel').classList.remove('hidden');
 renderClientList();
-} else {
-document.getElementById('adminMsg').innerText = 'Admin inválido';
+} else alert('Credenciais incorretas');
+}
+
+function renderClientList(){
+const list = document.getElementById('clientList');
+list.innerHTML='';
+clients.forEach(c=>{list.innerHTML+=`<li>${c.name} - ${c.whatsapp}</li>`});
+}
+
+function uploadLogo(){
+const file = document.getElementById('logoUpload').files[0];
+if(file){
+const reader = new FileReader();
+reader.onload = e=>document.querySelector('#mainLogo').src=e.target.result;
+reader.readAsDataURL(file);
 }
 }
 
-function goBack(){
-document.getElementById('clientForm').classList.add('hidden');
-document.getElementById('adminForm').classList.add('hidden');
-document.getElementById('bookingForm').classList.add('hidden');
-document.getElementById('calendarSection').classList.add('hidden');
-document.getElementById('adminPanel').classList.add('hidden');
-document.getElementById('accessSection').classList.remove('hidden');
+function uploadBackground(){
+const file = document.getElementById('bgUpload').files[0];
+if(file){
+const reader = new FileReader();
+reader.onload = e=>document.querySelector('.landing-container').style.backgroundImage=`url(${e.target.result})`;
+reader.readAsDataURL(file);
 }
-
-// Admin functions
-function addClientFromForm(){
-const name = document.get
+}
