@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<input type="password" id="adminPass" placeholder="Senha">
+<button onclick="loginAdmin()">Entrar</button>
+<button onclick="goBack()">Voltar</button>
+<p id="adminMsg"></p>
+</section>
+
+<!-- Painel Admin -->
+<section id="adminPanel" class="hidden">
+<h2>Painel Admin</h2>
+
+<div id="adminControls">
+<input type="text" id="newClientName" placeholder="Nome do cliente">
+<input type="password" id="newClientPass" placeholder="Senha">
+<button onclick="addClientFromForm()">Adicionar Cliente</button>
+</div>
+
+<h3>Clientes Cadastrados</h3>
+<ul id="clientList"></ul>
+
+<h3>Atualizar Imagens</h3>
+<div id="imageUploads">
+<label>Logo (PNG):</label>
+<input type="file" id="logoUpload" accept="image/png">
+<button onclick="uploadLogo()">Atualizar Logo</button>
+
+<label>Fundo do Calendário (PNG):</label>
+<input type="file" id="bgUpload" accept="image/png">
+<button onclick="uploadBackground()">Atualizar Fundo</button>
+</div>
+
+<button onclick="goBack()">Voltar</button>
+</section>
+
+<!-- Formulário de Agendamento -->
+<section id="bookingForm" class="hidden">
+<h2>Agendamento de Serviço</h2>
+<input type="text" id="clientBookingName" placeholder="Seu nome">
+<input type="date" id="bookingDate">
+<input type="time" id="bookingTime">
+<select id="serviceSelect">
+<option value="Extensão de Cílios Volume Brasileiro">Extensão de Cílios Volume Brasileiro</option>
+<option value="Extensão de Cílios Volume Glamour">Extensão de Cílios Volume Glamour</option>
+<option value="Extensão de Cílios Volume Marrom">Extensão de Cílios Volume Marrom</option>
+<option value="Extensão de Cílios Volume Fox">Extensão de Cílios Volume Fox</option>
+<option value="Design de Sobrancelhas Personalizado">Design de Sobrancelhas Personalizado</option>
+<option value="Design de Sobrancelhas com Henna/Tintura">Design de Sobrancelhas com Henna/Tintura</option>
+<option value="Brow Lamination">Brow Lamination</option>
+<option value="Lash Lifting">Lash Lifting</option>
+<option value="Manutenção Volume Brasileiro">Manutenção Volume Brasileiro</option>
+<option value="Manutenção Volume Glamour">Manutenção Volume Glamour</option>
+<option value="Manutenção Volume Marrom">Manutenção Volume Marrom</option>
+<option value="Manutenção Volume Fox">Manutenção Volume Fox</option>
+</select>
+<button onclick="bookService()">Agendar</button>
+<button onclick="goBack()">Voltar</button>
+<p id="bookingMsg"></p>
+</section>
+
+<!-- Calendário -->
+<section id="calendarSection" class="hidden">
+<h2>Agenda</h2>
+<div id="calendar"></div>
+<button onclick="goBack()">Voltar</button>
+</section>
+
+<footer>
+<p>© 2025 LashStudioScheduler</p>
+</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
